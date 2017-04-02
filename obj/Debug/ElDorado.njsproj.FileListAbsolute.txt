@@ -1,0 +1,2 @@
+C:\E Drive\Learn\El-Dorado\bin\Microsoft.NodejsTools.WebRole.dll
+C:\E Drive\Learn\El-Dorado\obj\Debug\ElDorado.njsprojResolveAssemblyReference.cache
