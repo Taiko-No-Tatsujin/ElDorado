@@ -1,0 +1,23 @@
+{
+  "name": "eldorado",
+  "version": "1.0.0",
+  "description": "El -Dorado Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itagi89/ElDorado.git"
+  },
+  "keywords": [
+    "El",
+    "Dorado"
+  ],
+  "author": "Mallikarjun Itagi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itagi89/ElDorado/issues"
+  },
+  "homepage": "https://github.com/itagi89/ElDorado#readme"
+}
