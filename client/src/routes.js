@@ -5,26 +5,26 @@ import SignUpPage from './containers/SignUpPage.jsx';
 
 
 const routes = {
-    // base component (wrapper for the whole application).
-    component: Base,
-    childRoutes: [
+  // base component (wrapper for the whole application).
+  component: Base,
+  childRoutes: [
 
-        {
-            path: '/',
-            component: HomePage
-        },
+    {
+      path: '/',
+      component: HomePage
+    },
 
-        {
-            path: '/login',
-            component: LoginPage
-        },
+    {
+      path: '/login',
+      component: LoginPage
+    },
 
-        {
-            path: '/signup',
-            component: SignUpPage
-        }
+    {
+      path: '/signup',
+      component: SignUpPage
+    }
 
-    ]
+  ]
 };
 
 export default routes;

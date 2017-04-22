@@ -1,103 +1,67 @@
-﻿
-import React, { PropTypes } from 'react';
-import SignUpForm from '../components/SignUpForm.jsx';
+﻿import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
+import { Card, CardText } from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 
-class SignUpPage extends React.Component {
+const SignUpForm = ({
+  onSubmit,
+  onChange,
+  errors,
+  user,
+}) => (
+  <Card className="container">
+    <form action="/" onSubmit={onSubmit}>
+      <h2 className="card-heading">Sign Up</h2>
 
-  /**
-   * Class constructor.
-   */
-  constructor(props) {
-    super(props);
+      {errors.summary && <p className="error-message">{errors.summary}</p>}
 
-    // set the initial component state
-    this.state = {
-      errors: {},
-      user: {
-        email: '',
-        name: '',
-        password: ''
-      }
-    };
+      <div className="field-line">
+        <TextField
+          floatingLabelText="Name"
+          name="name"
+          errorText={errors.name}
+          onChange={onChange}
+          value={user.name}
+        />
+      </div>
 
-    this.processForm = this.processForm.bind(this);
-    this.changeUser = this.changeUser.bind(this);
-  }
+      <div className="field-line">
+        <TextField
+          floatingLabelText="Email"
+          name="email"
+          errorText={errors.email}
+          onChange={onChange}
+          value={user.email}
+        />
+      </div>
 
-  /**
-   * Change the user object.
-   *
-   * @param {object} event - the JavaScript event object
-   */
-  changeUser(event) {
-    const field = event.target.name;
-    const user = this.state.user;
-    user[field] = event.target.value;
+      <div className="field-line">
+        <TextField
+          floatingLabelText="Password"
+          type="password"
+          name="password"
+          onChange={onChange}
+          errorText={errors.password}
+          value={user.password}
+        />
+      </div>
 
-    this.setState({
-      user
-    });
-  }
+      <div className="button-line">
+        <RaisedButton type="submit" label="Create New Account" primary />
+      </div>
 
-  /**
-   * Process the form.
-   *
-   * @param {object} event - the JavaScript event object
-   */
-  processForm(event) {
-    // prevent default action. in this case, action is the form submission event
-    event.preventDefault();
+      <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
+    </form>
+  </Card>
+);
 
-    // create a string for an HTTP body message
-    const name = encodeURIComponent(this.state.user.name);
-    const email = encodeURIComponent(this.state.user.email);
-    const password = encodeURIComponent(this.state.user.password);
-    const formData = `name=${name}&email=${email}&password=${password}`;
+SignUpForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
+};
 
-    // create an AJAX request
-    const xhr = new XMLHttpRequest();
-    xhr.open('post', '/auth/signup');
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.responseType = 'json';
-    xhr.addEventListener('load', () => {
-      if (xhr.status === 200) {
-        // success
-
-        // change the component-container state
-        this.setState({
-          errors: {}
-        });
-
-        console.log('The form is valid');
-      } else {
-        // failure
-
-        const errors = xhr.response.errors ? xhr.response.errors : {};
-        errors.summary = xhr.response.message;
-
-        this.setState({
-          errors
-        });
-      }
-    });
-    xhr.send(formData);
-  }
-
-  /**
-   * Render the component.
-   */
-  render() {
-    return (
-      <SignUpForm
-        onSubmit={this.processForm}
-        onChange={this.changeUser}
-        errors={this.state.errors}
-        user={this.state.user}
-      />
-    );
-  }
-
-}
-
-export default SignUpPage;
+export default SignUpForm;

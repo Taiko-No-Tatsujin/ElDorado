@@ -6,7 +6,7 @@ const Base = ({ children }) => (
   <div>
     <div className="top-bar">
       <div className="top-bar-left">
-        <IndexLink to="/">React App</IndexLink>
+        <IndexLink to="/">EL-Dorado</IndexLink>
       </div>
 
       <div className="top-bar-right">
@@ -16,13 +16,13 @@ const Base = ({ children }) => (
 
     </div>
 
-{children}
+    {children}
 
-</div>
+  </div>
 );
 
 Base.propTypes = {
-    children: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired
 };
 
 export default Base;
