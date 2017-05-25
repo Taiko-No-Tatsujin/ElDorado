@@ -34465,7 +34465,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.IndexLink,
 	          { to: '/' },
-	          'React App'
+	          'EL-Dorado '
 	        )
 	      ),
 	      _Auth2.default.isUserAuthenticated() ? _react2.default.createElement(
