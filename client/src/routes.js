@@ -3,6 +3,7 @@ import HomePage from './components/HomePage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
+import QuestionnairePage from './containers/QuestionnairePage.jsx';
 import Auth from './modules/Auth';
 
 
@@ -15,7 +16,8 @@ const routes = {
       path: '/',
       getComponent: (location, callback) => {
         if (Auth.isUserAuthenticated()) {
-          callback(null, DashboardPage);
+         // callback(null, DashboardPage);
+          callback(null, QuestionnairePage);
         } else {
           callback(null, HomePage);
         }
@@ -39,9 +41,8 @@ const routes = {
 
         // change the current URL to /
         replace('/');
-      }
+      } 
     }
-
   ]
 };
 

@@ -65,3 +65,8 @@ a:hover {
   padding: 0 16px;
   color: green;
 }
+
+.image-center{
+  width:650px !important;
+  height: 244px !important;
+}
