@@ -75,6 +75,13 @@ function validateLoginForm(payload) {
   };
 }
 
+router.get('/signup',(req,res,next)=>{
+    return res.status(200).json({
+        success:true,
+        message:"successfully got the response"
+    });
+});
+
 router.post('/signup', (req, res, next) => {
   const validationResult = validateSignupForm(req.body);
   if (!validationResult.success) {

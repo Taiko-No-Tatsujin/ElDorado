@@ -34409,8 +34409,8 @@
 	    path: '/',
 	    getComponent: function getComponent(location, callback) {
 	      if (_Auth2.default.isUserAuthenticated()) {
-	        // callback(null, DashboardPage);
-	        callback(null, _QuestionnairePage2.default);
+	        callback(null, _DashboardPage2.default);
+	        //callback(null, QuestionnairePage);
 	      } else {
 	        callback(null, _HomePage2.default);
 	      }
