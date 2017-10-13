@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --use_strict index.js",
     "bundle": "webpack",
-    "bundle:prod": "webpack -p"
+    "bundle:prod": "webpack -d"
   },
   "repository": {
     "type": "git",
