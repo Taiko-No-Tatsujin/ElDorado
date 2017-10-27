@@ -9,23 +9,16 @@ class QuestionnairePage extends React.Component {
    * Class constructor.
    */
   constructor(props, context) {
-    super(props, context);
-
-    const storedMessage = localStorage.getItem('successMessage');
-    let successMessage = '';
-
-    if (storedMessage) {
-      successMessage = storedMessage;
-      localStorage.removeItem('successMessage');
-    }
-
+    super(props, context); 
     // set the initial component state
     this.state = {
-      errors: {},
-      successMessage 
+      questionText: "", 
+      questionUrl: "", 
+      questionHint:""
     };
 
     this.processForm = this.processForm.bind(this); 
+    this.processForm();
   }
 
   /**
@@ -33,76 +26,34 @@ class QuestionnairePage extends React.Component {
    *
    * @param {object} event - the JavaScript event object
    */
-  processForm(event) {
-    // prevent default action. in this case, action is the form submission event
-    event.preventDefault();
-
-    // create a string for an HTTP body message
-    const email = encodeURIComponent(this.state.user.email);
-    const password = encodeURIComponent(this.state.user.password);
-    const formData = `email=${email}&password=${password}`;
-
+  processForm() {  
     // create an AJAX request
     const xhr = new XMLHttpRequest();
-    xhr.open('post', '/auth/login');
+    xhr.open('get', '/api/question');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // set the authorization HTTP header
+    xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
+      debugger;
       if (xhr.status === 200) {
-        // success
-
-        // change the component-container state
-        this.setState({
-          errors: {}
-        });
-
-        // save the token
-        Auth.authenticateUser(xhr.response.token);
-
-
-        // change the current URL to /
-        this.context.router.replace('/');
-      } else {
-        // failure
-
-        // change the component state
-        const errors = xhr.response.errors ? xhr.response.errors : {};
-        errors.summary = xhr.response.message;
-
-        this.setState({
-          errors
+        this.setState({ 
+          questionText: xhr.response.questionText, 
+          questionUrl: xhr.response.questionUrl, 
+          questionHint:xhr.response.questionHint
         });
       }
     });
-    xhr.send(formData);
-  }
-
-  /**
-   * Change the user object.
-   *
-   * @param {object} event - the JavaScript event object
-   */
-  changeUser(event) {
-    const field = event.target.name;
-    const user = this.state.user;
-    user[field] = event.target.value;
-
-    this.setState({
-      user
-    });
-  }
-
+    xhr.send();
+  } 
   /**
    * Render the component.
    */
   render() {
     return (
-      <Questionnaire
-        onSubmit={this.processForm} 
-      />
+      <Questionnaire  onSubmit={this.processForm} QuestionText={this.state.questionText} QuestionUrl={this.state.questionUrl} QuestionHint={this.state.questionHint} />
     );
   }
-
 }
 
 QuestionnairePage.contextTypes = {

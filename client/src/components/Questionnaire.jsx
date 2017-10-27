@@ -7,11 +7,21 @@ import { Image } from 'material-ui-image'
 
 const QuestionnaireForm = ({
   onSubmit, 
+  QuestionText,
+  QuestionHint,
+  QuestionUrl="/images/noImage.png"
 })  => (
 <Card className="container">
     <form action="/" onSubmit={onSubmit}> 
-       <div className="field-line">
-         <Image src="/images/3.jpg" style={{width: "100%",height:300,backgroundColor:"#fff"}}/>
+    <div className="field-line"> 
+          {QuestionText}
+      </div>
+      <div className="field-line">
+         {/* <Image src="/images/3.jpg" style={{width: "100%",height:300,backgroundColor:"#fff"}}/> */}
+         <Image src={QuestionUrl} style={{width: "100%",height:300,backgroundColor:"#fff"}}/> 
+      </div>
+      <div className="field-line"> 
+          {QuestionHint}
       </div>
       <div className="field-line"> 
         <TextField
@@ -27,7 +37,10 @@ const QuestionnaireForm = ({
 );
 
 QuestionnaireForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired 
+  onSubmit: PropTypes.func.isRequired,
+  QuestionText: PropTypes.string, 
+  QuestionUrl: PropTypes.string, 
+  QuestionHint:PropTypes.string
 };
 
 export default QuestionnaireForm;
