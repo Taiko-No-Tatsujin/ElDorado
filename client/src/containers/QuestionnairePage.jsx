@@ -32,8 +32,7 @@ class QuestionnairePage extends React.Component {
     // set the authorization HTTP header
     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
     xhr.responseType = 'json';
-    xhr.addEventListener('load', () => {
-      debugger;
+    xhr.addEventListener('load', () => { 
       if (xhr.status === 200) {
         this.setState({ 
           question:{

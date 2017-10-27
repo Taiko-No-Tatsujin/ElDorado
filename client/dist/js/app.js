@@ -44440,7 +44440,6 @@
 	      xhr.setRequestHeader('Authorization', 'bearer ' + _Auth2.default.getToken());
 	      xhr.responseType = 'json';
 	      xhr.addEventListener('load', function () {
-	        debugger;
 	        if (xhr.status === 200) {
 	          _this2.setState({
 	            question: {
