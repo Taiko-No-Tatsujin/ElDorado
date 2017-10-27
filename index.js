@@ -32,9 +32,9 @@ const apiRoutes = require('./server/routes/api');
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
 
-app.get('*', (request, response) => {
-  response.sendFile(path.resolve(__dirname, 'server/static', 'index.html'))
-})
+// app.get('*', (request, response) => {
+//   response.sendFile(path.resolve(__dirname, 'server/static', 'index.html'))
+// })
 
 // start the server
 app.listen(3000, () => {
