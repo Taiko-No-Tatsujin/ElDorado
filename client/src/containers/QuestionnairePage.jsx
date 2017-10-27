@@ -12,9 +12,7 @@ class QuestionnairePage extends React.Component {
     super(props, context); 
     // set the initial component state
     this.state = {
-      questionText: "", 
-      questionUrl: "", 
-      questionHint:""
+       question:{}
     };
 
     this.processForm = this.processForm.bind(this); 
@@ -38,9 +36,11 @@ class QuestionnairePage extends React.Component {
       debugger;
       if (xhr.status === 200) {
         this.setState({ 
-          questionText: xhr.response.questionText, 
-          questionUrl: xhr.response.questionUrl, 
-          questionHint:xhr.response.questionHint
+          question:{
+            QuestionText: xhr.response.questionText,
+            QuestionUrl:xhr.response.questionUrl,
+            QuestionHint:xhr.response.questionHint
+          } 
         });
       }
     });
@@ -51,7 +51,7 @@ class QuestionnairePage extends React.Component {
    */
   render() {
     return (
-      <Questionnaire  onSubmit={this.processForm} QuestionText={this.state.questionText} QuestionUrl={this.state.questionUrl} QuestionHint={this.state.questionHint} />
+      <Questionnaire  onSubmit={this.processForm} Question={this.state.question} />
     );
   }
 }

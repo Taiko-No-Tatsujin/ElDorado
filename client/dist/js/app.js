@@ -44412,9 +44412,7 @@
 	    var _this = _possibleConstructorReturn(this, (QuestionnairePage.__proto__ || Object.getPrototypeOf(QuestionnairePage)).call(this, props, context));
 
 	    _this.state = {
-	      questionText: "",
-	      questionUrl: "",
-	      questionHint: ""
+	      question: {}
 	    };
 
 	    _this.processForm = _this.processForm.bind(_this);
@@ -44445,9 +44443,11 @@
 	        debugger;
 	        if (xhr.status === 200) {
 	          _this2.setState({
-	            questionText: xhr.response.questionText,
-	            questionUrl: xhr.response.questionUrl,
-	            questionHint: xhr.response.questionHint
+	            question: {
+	              QuestionText: xhr.response.questionText,
+	              QuestionUrl: xhr.response.questionUrl,
+	              QuestionHint: xhr.response.questionHint
+	            }
 	          });
 	        }
 	      });
@@ -44460,7 +44460,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(_Questionnaire2.default, { onSubmit: this.processForm, QuestionText: this.state.questionText, QuestionUrl: this.state.questionUrl, QuestionHint: this.state.questionHint });
+	      return _react2.default.createElement(_Questionnaire2.default, { onSubmit: this.processForm, Question: this.state.question });
 	    }
 	  }]);
 
@@ -44505,10 +44505,9 @@
 
 	var QuestionnaireForm = function QuestionnaireForm(_ref) {
 	  var onSubmit = _ref.onSubmit,
-	      QuestionText = _ref.QuestionText,
-	      QuestionHint = _ref.QuestionHint,
-	      _ref$QuestionUrl = _ref.QuestionUrl,
-	      QuestionUrl = _ref$QuestionUrl === undefined ? "/images/noImage.png" : _ref$QuestionUrl;
+	      Question = _ref.Question,
+	      _ref$defaultImage = _ref.defaultImage,
+	      defaultImage = _ref$defaultImage === undefined ? "/images/noImage.png" : _ref$defaultImage;
 	  return _react2.default.createElement(
 	    _Card.Card,
 	    { className: 'container' },
@@ -44518,17 +44517,17 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'field-line' },
-	        QuestionText
+	        Question.QuestionText
 	      ),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'field-line' },
-	        _react2.default.createElement(_materialUiImage.Image, { src: QuestionUrl, style: { width: "100%", height: 300, backgroundColor: "#fff" } })
+	        _react2.default.createElement(_materialUiImage.Image, { src: Question.QuestionUrl ? Question.QuestionUrl : defaultImage, style: { width: "100%", height: 300, backgroundColor: "#fff" } })
 	      ),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'field-line' },
-	        QuestionHint
+	        Question.QuestionHint
 	      ),
 	      _react2.default.createElement(
 	        'div',
@@ -44547,9 +44546,7 @@
 
 	QuestionnaireForm.propTypes = {
 	  onSubmit: _react.PropTypes.func.isRequired,
-	  QuestionText: _react.PropTypes.string,
-	  QuestionUrl: _react.PropTypes.string,
-	  QuestionHint: _react.PropTypes.string
+	  Question: _react.PropTypes.object
 	};
 
 	exports.default = QuestionnaireForm;
