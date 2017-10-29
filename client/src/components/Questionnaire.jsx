@@ -12,16 +12,18 @@ const QuestionnaireForm = ({
   messageText,
   defaultImage="/images/noImage.png"
 })  => (
-<Card className="container">
+<Card className="containerQuestion">
     <form action="/" onSubmit={onSubmit}> 
     <div className="field-line"> 
-          {Question.QuestionText}
+          <span className="question-color">   {Question.QuestionText?Question.QuestionText:""} </span>
+          <span className="level-color"> Level : {Question.QuestionNo}</span>
       </div>
       <div className="field-line">
          <Image src={Question.QuestionUrl?Question.QuestionUrl:defaultImage} style={{width: "100%",height:300,backgroundColor:"#fff"}}/> 
       </div>
       <div className="field-line"> 
-          {Question.QuestionHint}
+        <span className="hint-color">  {Question.QuestionHint?"Hint:":""} </span>
+        <span>{Question.QuestionHint? Question.QuestionHint:""}</span>
       </div>
       <div className="field-line"> 
         <TextField

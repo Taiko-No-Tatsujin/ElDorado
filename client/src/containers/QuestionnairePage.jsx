@@ -45,6 +45,7 @@ class QuestionnairePage extends React.Component {
             QuestionText: response.question,
             QuestionUrl: defaultImagePath.concat(response.imagePath),
             QuestionHint: response.hint,
+            QuestionNo:response.questionNo,
             Id:response._id,
             AnswerText:""
           },

@@ -48,6 +48,34 @@ a:hover {
   width: 700px;
 }
 
+.containerQuestion{
+  margin: 0 auto;
+  width: 700px;
+}
+.question-color{
+  color: #00bcd4;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.4s;
+  background-color: white;
+}
+.hint-color{
+  color: #0091d4;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.4s;
+  background-color: white;
+}
+
+
+.level-color{
+  color: rgba(0, 0, 255, 0.87);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.4s;
+  background-color: white;
+  float: right;
+}
 .card-heading {
   padding: 16px;
 }
