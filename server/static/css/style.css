@@ -59,8 +59,24 @@ a:hover {
   transition: color 0.4s;
   background-color: white;
 }
+.valid-answer-error-message{
+  color: green;
+  font-style:italic;
+}
+.invalid-answer-error-message{
+  color: red;
+  font-style:italic;
+}
 .hint-color{
   color: #0091d4;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.4s;
+  background-color: white;
+}
+
+.welcome-text{
+  color: rgba(0, 0, 255, 0.548);
   font-weight: bold;
   text-decoration: none;
   transition: color 0.4s;

@@ -10,6 +10,7 @@ const QuestionnaireForm = ({
   Question,
   onChange,
   messageText,
+  isValidAnswer,
   defaultImage="/images/noImage.png"
 })  => (
 <Card className="containerQuestion">
@@ -37,7 +38,7 @@ const QuestionnaireForm = ({
          <RaisedButton type="submit" label="Save" primary  style={{marginLeft:10}}/> 
       </div> 
       <div  className="field-line">
-        {messageText}
+       <span className={isValidAnswer}> {messageText}</span>
       </div>
    </form>
 </Card>
@@ -47,7 +48,8 @@ QuestionnaireForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   Question: PropTypes.object, 
-  messageText:PropTypes.string
+  messageText:PropTypes.string,
+  isValidAnswer:PropTypes.string,
 };
 
 export default QuestionnaireForm;

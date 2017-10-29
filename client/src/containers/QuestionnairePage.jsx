@@ -14,7 +14,8 @@ class QuestionnairePage extends React.Component {
        question:{
         AnswerText:""
        },
-       messageText:""
+       messageText:"",
+       isValidAnswer:"",
     }; 
     this.saveQuestion = this.saveQuestion.bind(this); 
     this.updateState = this.updateState.bind(this);  
@@ -49,7 +50,8 @@ class QuestionnairePage extends React.Component {
             Id:response._id,
             AnswerText:""
           },
-          messageText:""
+          messageText:"",
+          isValidAnswer:"",
         });
       }
       else{
@@ -76,10 +78,12 @@ class QuestionnairePage extends React.Component {
       if (xhr.status === 200) {
         debugger; 
         if(xhr.response.message=== "Correct Answer"){
+          this.setState({isValidAnswer:"valid-answer-error-message"});
           this.setState({messageText:xhr.response.message});
           this.componentDidMount();
         }
         else{
+          this.setState({isValidAnswer:"invalid-answer-error-message"});
           this.setState({messageText:xhr.response.message});
         }
       }
@@ -107,6 +111,7 @@ class QuestionnairePage extends React.Component {
        onSubmit={this.saveQuestion} 
        Question={this.state.question} 
        messageText={this.state.messageText}
+       isValidAnswer={this.state.isValidAnswer}
        onChange={this.updateState} />
     );
   }
