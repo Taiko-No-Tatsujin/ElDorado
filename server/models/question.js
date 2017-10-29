@@ -3,15 +3,14 @@ const mongoose = require('mongoose');
 // define the Question model schema
 const QuestionSchema = new mongoose.Schema({
   question: {
-    type: String,
-    index: { unique: true }
+    type: String 
   },
   hint: String,
   imagePath:{
     type:String,
     index:{unique:true}
   } ,
-  answer:String,
+  answer:{type:String, lowercase: true },
   questionNo:Number,
   createdDateTime:Date
 });

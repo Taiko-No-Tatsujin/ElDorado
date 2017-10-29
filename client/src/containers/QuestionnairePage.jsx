@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
 import Auth from '../modules/Auth';
 import Questionnaire from '../components/Questionnaire.jsx';
-// import config from './config';
-
 
 class QuestionnairePage extends React.Component {
 
@@ -13,22 +11,22 @@ class QuestionnairePage extends React.Component {
     super(props, context); 
     // set the initial component state
     this.state = {
-       question:{},
+       question:{
+        AnswerText:""
+       },
        messageText:""
-    };
-
-    this.getQuestion = this.getQuestion.bind(this); 
+    }; 
     this.saveQuestion = this.saveQuestion.bind(this); 
-    this.updateState = this.updateState.bind(this); 
-    this.getQuestion();
+    this.updateState = this.updateState.bind(this);  
   }
 
   /**
    * Process the form.
    *
    * @param {object} event - the JavaScript event object
+   * Loads once after the initialization of the component
    */
-  getQuestion() {  
+  componentDidMount() {  
     // create an AJAX request
     const xhr = new XMLHttpRequest();
     xhr.open('get', '/api/question');
@@ -78,7 +76,7 @@ class QuestionnairePage extends React.Component {
         debugger; 
         if(xhr.response.message=== "Correct Answer"){
           this.setState({messageText:xhr.response.message});
-          this.getQuestion();
+          this.componentDidMount();
         }
         else{
           this.setState({messageText:xhr.response.message});
@@ -87,7 +85,9 @@ class QuestionnairePage extends React.Component {
     });
     xhr.send(JSON.stringify(currentState));
   }
-
+   /**
+   * Updates the component state.
+   */
   updateState(event) {
     const field = event.target.name;
     const question = this.state.question;

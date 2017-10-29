@@ -4,10 +4,13 @@
   "description": "El -Dorado Application",
   "main": "index.js",
   "scripts": {
+    "clean:all": "rimraf node_modules target && npm cache clean",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --use_strict index.js",
     "bundle": "webpack",
-    "bundle:prod": "webpack -p"
+    "bundle:prod": "webpack -p" ,
+    "start": "  nodemon --use_strict index.js", 
+    "start1": " SET NODE_ENV=production  & webpack-dev-server --open --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -45,8 +48,12 @@
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "html-webpack-plugin": "^2.30.1",
     "nodemon": "^1.11.0",
-    "webpack": "^1.14.0"
+    "uglifyjs-webpack-plugin": "^1.0.1",
+    "webpack": "^1.14.0",
+    "webpack-merge": "^4.1.0"
   },
   "bugs": {
     "url": "https://github.com/itagi89/ElDorado/issues"
