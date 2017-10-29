@@ -8,7 +8,7 @@ import { Image } from 'material-ui-image'
 const QuestionnaireForm = ({
   onSubmit, 
   Question,
-  answerChange,
+  onChange,
   messageText,
   defaultImage="/images/noImage.png"
 })  => (
@@ -31,7 +31,7 @@ const QuestionnaireForm = ({
           name="AnswerText"
           id="txtAnswer" 
           value={Question.AnswerText}
-          onChange={answerChange}
+          onChange={onChange}
           style={{width:"80%"}}
         /> 
          <RaisedButton type="submit" label="Save" primary  style={{marginLeft:10}}/> 
