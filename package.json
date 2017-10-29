@@ -7,14 +7,10 @@
     "clean:all": "rimraf node_modules target && npm cache clean",
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "webpack",
-<<<<<<< HEAD
     "bundle:prod": "webpack -p" ,
     "start": "  nodemon --use_strict index.js", 
     "start1": " SET NODE_ENV=production  & webpack-dev-server --open --config webpack.prod.js",
     "build": "webpack --config webpack.prod.js"
-=======
-    "bundle:prod": "webpack -d"
->>>>>>> 6c7681939ee49994307c5ee56da191473251d665
   },
   "repository": {
     "type": "git",
@@ -32,14 +28,9 @@
     "bson": "^1.0.4",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.3.0",
-    "lodash": "^4.17.4",
-<<<<<<< HEAD
-    "material-ui": "^0.17.4",
-    "material-ui-image": "^1.3.1",
-=======
+    "lodash": "^4.17.4", 
     "material-ui": "^0.16.5",
-    "material-ui-image": "^1.4.1",
->>>>>>> 6c7681939ee49994307c5ee56da191473251d665
+    "material-ui-image": "^1.4.1", 
     "moment": "^2.18.1",
     "mongod": "^2.0.0",
     "mongoose": "^4.12.4",
