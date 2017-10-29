@@ -48,6 +48,16 @@ a:hover {
   width: 700px;
 }
 
+.container-Rules{
+  margin: 0 auto;
+  width: 700px;
+}
+.loginName{
+  font-weight: bold;
+}
+.rules-title{
+  text-align: center;
+}
 .containerQuestion{
   margin: 0 auto;
   width: 700px;

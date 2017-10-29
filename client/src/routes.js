@@ -4,6 +4,7 @@ import DashboardPage from './containers/DashboardPage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
 import QuestionnairePage from './containers/QuestionnairePage.jsx';
+import RulesPage from './containers/Rulespage.jsx';
 import Auth from './modules/Auth';
 
 
@@ -11,7 +12,6 @@ const routes = {
   // base component (wrapper for the whole application).
   component: Base,
   childRoutes: [
-
     {
       path: '/',
       getComponent: (location, callback) => {
@@ -28,7 +28,10 @@ const routes = {
       path: '/login',
       component: LoginPage
     },
-
+    {
+      path: '/rules',
+      component: RulesPage
+    },
     {
       path: '/signup',
       component: SignUpPage

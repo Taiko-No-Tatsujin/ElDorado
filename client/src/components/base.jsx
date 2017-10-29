@@ -11,8 +11,15 @@ const Base = ({ children }) => (
       </div>
 
       {Auth.isUserAuthenticated() ? (
+        <div>
+          <div className="top-bar-left">
+          <Link to="/rules"> Rules</Link>
+         </div> 
         <div className="top-bar-right">
-       <span className="welcome-text"> Welcome:</span> {Auth.getName()}  <Link to="/logout">Log out</Link>
+             <span className="welcome-text"> Welcome:</span> 
+              <span className="loginName">{Auth.getName()} </span>
+            <Link to="/logout">Log out</Link>
+        </div>
         </div>
       ) : (
         <div className="top-bar-right">
