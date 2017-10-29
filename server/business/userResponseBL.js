@@ -46,7 +46,7 @@ module.exports={
   saveUserResponse:function(req,userInfo,next){
     if(userInfo){
         Question
-        .findOne({_id:req.Id,answer:req.AnswerText},(err,answeredQuestion)=>{
+        .findOne({_id:req.Id,answer:req.AnswerText.trim()},(err,answeredQuestion)=>{
             if(answeredQuestion)
         {
             const userResponse={

@@ -5,7 +5,11 @@ const mongoose = require('mongoose');
 const UserResponseSchema = new mongoose.Schema({
   question:{ type: mongoose.Schema.Types.ObjectId, ref: 'Question' },
   user:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }, 
-  userResponseText:String,
+  userResponseText:
+  {
+    type:String,
+    trim: true 
+  },
   responseDateTime:Date
 });
 
