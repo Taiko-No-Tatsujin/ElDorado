@@ -1,0 +1,15 @@
+version: "2"
+services:
+  web:
+    build: .
+    ports:
+      - "6000:3000"
+    links:
+      - mongo
+    command: ["./wait-for-it.sh", "mongo:27018", "--", "npm start"]
+  mongo:
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27018:27017"

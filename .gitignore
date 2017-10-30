@@ -1,5 +1,6 @@
 .vscode/ 
 node_modules/
 mongodb/
-client/dist/js/app.js
 npm-debug.log
+client/dist
+data/
