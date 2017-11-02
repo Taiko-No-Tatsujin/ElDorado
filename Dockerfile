@@ -1,14 +1,12 @@
 FROM node
 
+WORKDIR /var/www
+
 ENV NODE_ENV=development
 ENV PORT=3000
 
-WORKDIR /var/www
-ADD package.json /var/www/
-
+ADD package.json /var/www
 RUN npm install
-
-COPY . /var/www
 
 EXPOSE 3000
 

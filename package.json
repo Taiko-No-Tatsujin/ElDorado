@@ -1,11 +1,11 @@
 {
   "name": "eldorado",
   "version": "1.0.0",
-  "description": "El -Dorado Application",
+  "description": "El-Dorado Application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "nodemon -L index.js",
     "bundle": "webpack",
     "bundle:prod": "webpack -p"
   },
