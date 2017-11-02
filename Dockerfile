@@ -1,11 +1,14 @@
-FROM node:8
+FROM node
 
-ADD package.json /tmp/package.json
-RUN cd /tmp && npm install
-RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
-RUN cd /tmp && npm rebuild bcrypt --build-from-source
-WORKDIR /opt/app
-ADD . /opt/app
+ENV NODE_ENV=development
+ENV PORT=3000
+
+WORKDIR /var/www
+ADD package.json /var/www/
+
+RUN npm install
+
+COPY . /var/www
 
 EXPOSE 3000
 

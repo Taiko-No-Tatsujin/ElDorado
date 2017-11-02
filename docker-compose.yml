@@ -3,10 +3,10 @@ services:
   web:
     build: .
     ports:
-      - "6000:3000"
+      - "3000:3000"
     links:
-      - mongo
-    command: ["./wait-for-it.sh", "mongo:27018", "--", "npm start"]
+      - mongo:mongodb
+    command: ["./wait-for-it.sh", "mongo:27017", "--", "npm start"]
   mongo:
     image: mongo
     volumes:
