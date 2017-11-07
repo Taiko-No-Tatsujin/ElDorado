@@ -6,10 +6,6 @@
   "scripts": {
     "clean:all": "rimraf node_modules target && npm cache clean",
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-=======
-    "start": "nodemon -L index.js",
->>>>>>> Added bridge network.
     "bundle": "webpack",
     "bundle:prod": "webpack -p" ,
     "start": "  nodemon --use_strict index.js", 
