@@ -7,7 +7,7 @@ services:
       - "3000:3000"
     networks:
       - eldo-network
-    command: ["./wait-for-it.sh", "mongo:27017", "--", "npm start"]
+    command: ["./wait-for-it.sh", "mongo:27017", "--", "npm run docker"]
     volumes:
       - .:/var/www
       - /var/www/node_modules

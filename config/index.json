@@ -1,6 +1,0 @@
-{
-  "dbUri-local": "mongodb://localhost/eldorado",
-  "dbUri":"mongodb://eldorado:vUgqDGm0KZiYZ6n0qWPeBOLCz0JSgcvlYnoIdj6r2QkP8sLvH5h8S1ZIqklp4xr5CUv8ZrOfXCs6YWGulmtrjg==@eldorado.documents.azure.com:10255/eldorado?ssl=true",
-  "jwtSecret": "a secret phrase!!",
-  "defaultImagePath": "/images/"
-}
