@@ -7,8 +7,9 @@
     "clean:all": "rimraf node_modules target && npm cache clean",
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "webpack",
-    "start": "SET NODE_ENV=production & webpack -p --config webpack.prod.js",
-    "local": "NODE_ENV='local' nodemon --use-strict index.js",
+    "start": "SET NODE_ENV=production && webpack -p --config webpack.prod.js",
+    "local": "NODE_ENV=local nodemon --use-strict index.js",
+    "local:win":"SET NODE_ENV=\"local\" && nodemon --use-strict index.js",
     "docker": "NODE_ENV='docker' nodemon -L index.js",
     "azure": "NODE_ENV='azure' nodemon index.js",
     "build": "webpack --config webpack.prod.js"
