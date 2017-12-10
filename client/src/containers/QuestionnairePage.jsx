@@ -60,6 +60,19 @@ class QuestionnairePage extends React.Component {
       }
     });
     xhr.send();
+
+    const xhr1 = new XMLHttpRequest();
+    xhr1.open('get', '/api/getLeaderBoard');
+    xhr1.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    // set the authorization HTTP header
+    xhr1.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+    xhr1.responseType = 'json';
+    xhr1.addEventListener('load', () => { 
+      if (xhr1.status === 200) {
+        debugger;
+      } 
+    });
+    xhr1.send();
   } 
  
   saveQuestion(e){

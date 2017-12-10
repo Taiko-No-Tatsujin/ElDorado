@@ -5,7 +5,8 @@ const config = require('./config/index.js');
 const path = require('path');
 
 // connect to the database and load models
-require('./server/models').connect(config.dbUri); 
+//require('./server/models').connect(config.dbUri); 
+require('./server/models').connect("mongodb://localhost/eldorado");
 const app = express();
 // tell the app to look for static files in these directories
 app.use(express.static('./server/static/'));

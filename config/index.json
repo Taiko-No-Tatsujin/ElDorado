@@ -1,0 +1,5 @@
+{
+    "dbUri": "mongodb://localhost/eldorado",
+    "jwtSecret": "a secret phrase!!",
+    "defaultImagePath": "/images/"
+  }

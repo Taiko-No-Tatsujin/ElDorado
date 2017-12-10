@@ -50,4 +50,12 @@ router.post('/saveAnswer',(req,res) =>{
     }
     }); 
 });    
+
+router.get('/getLeaderBoard',(req,res)=>{
+  loggedInUser.getUserInfo(req,(userErr,userInfo)=>{
+      userResponse.getLeaderBoardStatus(req,userInfo,(leaderBoardData)=>{
+        
+      });
+  });
+});
 module.exports = router;

@@ -3,6 +3,7 @@ const moment=require('moment');
 const loggedInUser =require('../middleware/user-info.js');
 const UserResponse = require('mongoose').model('UserResponse');
 const Question = require('mongoose').model('Question');
+const User = require('mongoose').model('User');
 
 module.exports={
   getQuestion:function(userInfo,next){
@@ -65,8 +66,46 @@ module.exports={
         }
         });
 
+        }
+    },
+    getLeaderBoardStatus:function(req,userInfo,next){
+        if(userInfo){
+            // UserResponse.aggregate([
+            //         {
+            //             $unwind:'$user'
+            //         },{
+            //         $group:{
+            //             _id:'$user',
+            //             count:{$sum:1}
+            //         }
+            //     }
+            // ],function(err,groupResults){
+            //   UserResponse.populate(groupResults,{path:"user"},function(err,leaderResults){
+            //         return next(leaderResults);
+            //   });   
+            // })
+            UserResponse.aggregate([
+                {
+                    $unwind:'$user'
+                },{
+                $group:{
+                    _id:'$user',
+                    //count:{$sum:1}
+                    rank : { $sum : 1 }
+                }
+            },
+            { $sort : { 'rank' : -1}}
+        ]).exec(function(err,groupResults){
+            User.populate(groupResults,{path:"_id"},function(err,leaderResults){ 
+                return next(leaderResults);
+            });   
+        });
+             
+        }
+        else{
+            return next({message:'Not Signed In'});
+        }
     }
-}
 }
 
   
